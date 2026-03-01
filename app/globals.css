@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1a6af5;
+  --primary-dark: #1454e1;
+  --accent: #00c853;
+  --background: #0a0f1a;
+  --foreground: #f8fafc;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-slate-950 text-slate-100 antialiased;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Gradient overlays */
+.gradient-hero {
+  background: linear-gradient(135deg, rgba(26, 106, 245, 0.15) 0%, rgba(0, 200, 83, 0.05) 100%);
+}
+
+.gradient-card {
+  background: linear-gradient(180deg, rgba(30, 58, 138, 0.3) 0%, rgba(15, 23, 42, 0.9) 100%);
+}
+
