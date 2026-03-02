@@ -1,3 +1,5 @@
+import type { CatalogRow } from "./types";
+
 const supabaseUrl = (process.env.NEXT_PUBLIC_SUPABASE_URL ?? "").replace(/\/$/, "");
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
 
@@ -8,9 +10,7 @@ export function getCatalogDownloadUrl(filePath: string): string {
 }
 
 /** Obtiene la lista de catálogos desde Supabase (REST API, sin paquete @supabase/supabase-js) */
-export async function fetchCatalogs(): Promise<
-  { data: Array<{ id: string; name: string; description: string | null; file_path: string; file_type: string; created_at: string }>; error: string | null }
-> {
+export async function fetchCatalogs(): Promise<{ data: CatalogRow[]; error: string | null }> {
   if (!supabaseUrl || !supabaseAnonKey) {
     return { data: [], error: "Faltan variables de Supabase en .env.local" };
   }
@@ -29,7 +29,7 @@ export async function fetchCatalogs(): Promise<
       const text = await res.text();
       return { data: [], error: text || res.statusText };
     }
-    const data = await res.json();
+    const data = (await res.json()) as CatalogRow[];
     return { data, error: null };
   } catch (e) {
     return {
