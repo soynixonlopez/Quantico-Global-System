@@ -18,13 +18,13 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="testimonios" className="py-12 sm:py-16 md:py-20 lg:py-28">
+    <section id="testimonios" className="py-12 sm:py-16 md:py-20 lg:py-28 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white px-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground px-2">
             Lo que dicen nuestros clientes
           </h2>
-          <p className="mt-3 sm:mt-4 text-slate-400 text-base sm:text-lg px-2">
+          <p className="mt-3 sm:mt-4 text-muted-foreground text-base sm:text-lg px-2">
             Empresas y hogares en Panamá confían en nosotros para su seguridad.
           </p>
         </div>
@@ -32,12 +32,12 @@ export function Testimonials() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="rounded-xl border border-slate-700/50 bg-slate-800/30 p-4 sm:p-6 lg:p-8 hover:border-primary-500/30 transition-colors"
+              className="rounded-xl border border-border bg-card p-4 sm:p-6 lg:p-8 hover:border-primary/30 transition-colors"
             >
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">"{t.quote}"</p>
-              <div className="mt-4 sm:mt-6 pt-4 border-t border-slate-700/50">
-                <p className="text-white font-semibold text-sm sm:text-base">{t.author}</p>
-                <p className="text-slate-500 text-xs sm:text-sm mt-0.5">{t.role}</p>
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">"{t.quote}"</p>
+              <div className="mt-4 sm:mt-6 pt-4 border-t border-border">
+                <p className="text-foreground font-semibold text-sm sm:text-base">{t.author}</p>
+                <p className="text-muted-foreground text-xs sm:text-sm mt-0.5">{t.role}</p>
               </div>
             </div>
           ))}

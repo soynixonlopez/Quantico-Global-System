@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,22 +10,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        card: "var(--card)",
+        "card-foreground": "var(--card-foreground)",
+        border: "var(--border)",
+        muted: "var(--muted)",
+        "muted-foreground": "var(--muted-foreground)",
         primary: {
-          50: "#eef7ff",
-          100: "#d9ecff",
-          200: "#bcdeff",
-          300: "#8ec9ff",
-          400: "#59abff",
-          500: "#3388ff",
-          600: "#1a6af5",
-          700: "#1454e1",
-          800: "#1744b6",
-          900: "#1a3c8f",
-          950: "#142657",
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
+          50: "var(--primary-50)",
+          100: "var(--primary-100)",
+          200: "var(--primary-200)",
+          300: "var(--primary-300)",
+          400: "var(--primary-400)",
+          500: "var(--primary-500)",
+          600: "var(--primary-600)",
         },
         accent: {
-          DEFAULT: "#00c853",
-          dark: "#009624",
+          DEFAULT: "var(--accent)",
+          muted: "var(--accent-muted)",
         },
       },
       fontFamily: {
