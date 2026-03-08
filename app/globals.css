@@ -79,6 +79,36 @@ body {
   animation: fade-in-up 0.6s ease-out forwards;
 }
 
+/* Beneficios: entrada escalonada y barra de acento */
+@keyframes benefit-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.benefit-card {
+  animation: benefit-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+.benefit-card:hover .benefit-accent {
+  transform: scaleY(1);
+}
+
+.benefit-card:hover .benefit-icon-wrap {
+  transform: scale(1.05);
+  background-color: var(--primary-100);
+}
+
+.dark .benefit-card:hover .benefit-icon-wrap {
+  background-color: rgba(45, 212, 191, 0.15);
+}
+
 /* Gradientes - light (por defecto) */
 .gradient-hero {
   background: linear-gradient(

@@ -49,7 +49,7 @@ export function WhyUs() {
           <div className="relative order-2 lg:order-1">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] max-h-[400px] lg:max-h-none">
               <Image
-                src="/assets/img/choosequantico.png"
+                src="/assets/img/choosesection.jpg"
                 alt="Por qué elegir Quantico - Sistemas de seguridad"
                 fill
                 className="object-cover"

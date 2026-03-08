@@ -43,7 +43,7 @@ export function Hero() {
         <div className="relative order-2 flex justify-center">
           <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-border shadow-2xl w-full max-w-md md:max-w-none aspect-[4/3] md:aspect-auto md:h-[320px] lg:h-[380px] bg-card">
             <Image
-              src="/assets/img/mainimg.png"
+              src="/assets/img/mainsection.jpg"
               alt="Sistema de cámaras de seguridad - Quantico System Global"
               fill
               className="object-cover"
