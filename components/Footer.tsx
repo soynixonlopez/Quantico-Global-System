@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 import { Modal } from "./Modal";
 import { useState } from "react";
+import { Reveal } from "./Reveal";
 
 const links = [
   { href: "#inicio", label: "Inicio" },
@@ -73,8 +74,8 @@ export function Footer() {
   return (
     <>
       <footer className="bg-card border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-5 py-10 sm:py-12 lg:py-16">
+          <Reveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             <div className="sm:col-span-2 lg:col-span-1">
               <Logo
                 className="h-9 w-auto sm:h-10 object-contain object-left"
@@ -126,9 +127,9 @@ export function Footer() {
                 </li>
               </ul>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+          <Reveal className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left" delay={120}>
             <p className="text-muted-foreground text-xs sm:text-sm order-2 sm:order-1">
               © {new Date().getFullYear()} Quantico System Global. Todos los derechos reservados.
             </p>
@@ -148,7 +149,7 @@ export function Footer() {
                 Términos de uso
               </button>
             </div>
-          </div>
+          </Reveal>
         </div>
       </footer>
 

@@ -1,3 +1,5 @@
+import { Reveal } from "./Reveal";
+
 const testimonials = [
   {
     quote: "Excelente atención y productos de primera. Instalaron todo el sistema en nuestra oficina y el soporte post-venta es impecable.",
@@ -19,16 +21,16 @@ const testimonials = [
 export function Testimonials() {
   return (
     <section id="testimonios" className="py-12 sm:py-16 md:py-20 lg:py-28 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-5">
+        <Reveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground px-2">
             Lo que dicen nuestros clientes
           </h2>
           <p className="mt-3 sm:mt-4 text-muted-foreground text-base sm:text-lg px-2">
             Empresas y hogares en Panamá confían en nosotros para su seguridad.
           </p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        </Reveal>
+        <Reveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8" delay={120}>
           {testimonials.map((t, i) => (
             <div
               key={i}
@@ -41,7 +43,7 @@ export function Testimonials() {
               </div>
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

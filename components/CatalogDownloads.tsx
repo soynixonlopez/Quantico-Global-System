@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Reveal } from "./Reveal";
 
 const CATALOGS: Array<{
   id: string;
@@ -15,7 +16,7 @@ const CATALOGS: Array<{
     name: "Alarmas Vias",
     description: "Sistemas de alarma y seguridad residencial y comercial.",
     filePath: "ALARMAS VIAS (1).pptx",
-    image: "/assets/img/branding/vias.png",
+    image: "/catalogs/img/vias.png",
     imageAlt: "Vias - Alarmas",
   },
   {
@@ -23,7 +24,7 @@ const CATALOGS: Array<{
     name: "Bullets y Torretas Tiandy",
     description: "Cámaras bullet y torreta para interior y exterior.",
     filePath: "BULLETS Y TORRETAS.pptx",
-    image: "/assets/img/branding/tiandy.png",
+    image: "/catalogs/img/tiandy-bullets.png",
     imageAlt: "Tiandy - Bullets y Torretas",
   },
   {
@@ -31,7 +32,7 @@ const CATALOGS: Array<{
     name: "Catálogo Garrett",
     description: "Detectores y equipos de seguridad Garrett.",
     filePath: "CATALOGO GARRETT.pptx",
-    image: "/assets/img/branding/garret.png",
+    image: "/catalogs/img/garret4.png",
     imageAlt: "Garrett",
   },
   {
@@ -39,7 +40,7 @@ const CATALOGS: Array<{
     name: "Catálogo GRS",
     description: "Soluciones Global Radio System.",
     filePath: "CATALOGO GRS.pptx",
-    image: "/assets/img/branding/globalradio.png",
+    image: "/catalogs/img/globalradiosystem.png",
     imageAlt: "Global Radio System",
   },
   {
@@ -47,7 +48,7 @@ const CATALOGS: Array<{
     name: "NVR - Switch - Discos Duros",
     description: "Grabadores, switches y almacenamiento para CCTV.",
     filePath: "NVR - SWITCH - DISCOS DUROS.pptx",
-    image: "/assets/img/branding/tiandy.png",
+    image: "/catalogs/img/tiandy-switch.png",
     imageAlt: "NVR y equipos de red",
   },
   {
@@ -55,7 +56,7 @@ const CATALOGS: Array<{
     name: "WiFi - Duals - Pro",
     description: "Soluciones inalámbricas y equipos profesionales.",
     filePath: "WI FI - DUALS - PRO.pptx",
-    image: "/assets/img/branding/tiandy.png",
+    image: "/catalogs/img/tiandy-dual.png",
     imageAlt: "WiFi y conectividad",
   },
 ];
@@ -67,17 +68,17 @@ function getDownloadUrl(filePath: string): string {
 export function CatalogDownloads() {
   return (
     <section id="catalogos" className="py-12 sm:py-16 md:py-20 lg:py-28 bg-muted/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-5">
+        <Reveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground px-2">
             Catálogos para descargar
           </h2>
           <p className="mt-3 sm:mt-4 text-muted-foreground text-base sm:text-lg px-2">
             Descarga nuestros catálogos por marca y categoría. Haz clic en la tarjeta o en el botón para descargar.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Reveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" delay={120}>
           {CATALOGS.map((catalog) => {
             const downloadUrl = getDownloadUrl(catalog.filePath);
             return (
@@ -118,7 +119,7 @@ export function CatalogDownloads() {
               </a>
             );
           })}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

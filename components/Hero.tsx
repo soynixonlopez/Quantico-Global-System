@@ -1,14 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal } from "./Reveal";
 
 export function Hero() {
   return (
     <section id="inicio" className="relative min-h-[85svh] sm:min-h-[88svh] lg:min-h-[90vh] flex items-center overflow-hidden pt-24 sm:pt-20 md:pt-16 lg:pt-20 pb-12 sm:pb-16 bg-background">
       <div className="absolute inset-0 gradient-hero" />
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230284c7\' fill-opacity=\'0.04\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60 dark:opacity-40" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-2 sm:px-4 lg:px-5 py-8 sm:py-12 lg:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
         {/* Móvil: texto arriba (order-1). Desktop: texto izquierda (md:order-1) */}
-        <div className="order-1 text-center md:text-left">
+        <Reveal className="order-1 text-center md:text-left">
           <p className="text-primary font-medium text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4">
             Líder en vigilancia en Panamá
           </p>
@@ -38,15 +39,15 @@ export function Hero() {
               Ver catálogo
             </Link>
           </div>
-        </div>
+        </Reveal>
         {/* Móvil: imagen abajo (order-2). Desktop: imagen derecha (md:order-2) */}
-        <div className="relative order-2 flex justify-center">
-          <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-border shadow-2xl w-full max-w-md md:max-w-none aspect-[4/3] md:aspect-auto md:h-[320px] lg:h-[380px] bg-card">
+        <Reveal className="relative order-2 flex justify-center" delay={120}>
+          <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-border shadow-2xl w-full max-w-lg md:max-w-none aspect-[4/3] md:aspect-auto md:h-[360px] lg:h-[460px] h-full bg-card">
             <Image
-              src="/assets/img/mainsection.jpg"
+              src="/assets/img/bannersection.png"
               alt="Sistema de cámaras de seguridad - Quantico System Global"
               fill
-              className="object-cover"
+              className="object-contain object-center"
               priority
               sizes="(max-width: 768px) 100vw, 50vw"
               unoptimized
@@ -56,7 +57,7 @@ export function Hero() {
               <p className="text-muted-foreground text-xs sm:text-sm">Instalación y soporte en Panamá</p>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

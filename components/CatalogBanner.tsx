@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Reveal } from "./Reveal";
 
 const CATALOG_DOWNLOAD_URL = "/catalogs/QUANTICO.pptx";
 
@@ -11,8 +12,8 @@ export function CatalogBanner() {
       className="relative w-full overflow-hidden py-6 sm:py-8"
       aria-labelledby="banner-catalogo-title"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="rounded-2xl overflow-hidden border border-border bg-card shadow-lg flex flex-col sm:flex-row">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4">
+        <Reveal className="rounded-2xl overflow-hidden border border-border bg-card shadow-lg flex flex-col sm:flex-row">
           {/* Imagen: se ajusta al 100% del bloque con object-cover */}
           <a
             href={CATALOG_DOWNLOAD_URL}
@@ -49,7 +50,7 @@ export function CatalogBanner() {
               Descargar catálogo
             </a>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

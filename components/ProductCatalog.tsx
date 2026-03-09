@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "./Reveal";
 
 const CATALOGS = [
   {
@@ -7,7 +8,7 @@ const CATALOGS = [
     category: "Alarmas",
     description: "Sistemas de alarma y seguridad residencial y comercial.",
     filePath: "ALARMAS VIAS (1).pptx",
-    image: "/assets/img/branding/vias.png",
+    image: "/catalogs/img/vias.png",
     imageAlt: "Vias - Alarmas",
   },
   {
@@ -16,7 +17,7 @@ const CATALOGS = [
     category: "Cámaras",
     description: "Cámaras bullet y torreta para interior y exterior.",
     filePath: "BULLETS Y TORRETAS.pptx",
-    image: "/assets/img/branding/tiandy.png",
+    image: "/catalogs/img/tiandy-bullets.png",
     imageAlt: "Tiandy - Bullets y Torretas",
   },
   {
@@ -25,7 +26,7 @@ const CATALOGS = [
     category: "Detectores",
     description: "Detectores y equipos de seguridad Garrett.",
     filePath: "CATALOGO GARRETT.pptx",
-    image: "/assets/img/branding/garret.png",
+    image: "/catalogs/img/garret4.png",
     imageAlt: "Garrett",
   },
   {
@@ -34,7 +35,7 @@ const CATALOGS = [
     category: "Comunicación",
     description: "Soluciones Global Radio System.",
     filePath: "CATALOGO GRS.pptx",
-    image: "/assets/img/branding/globalradio.png",
+    image: "/catalogs/img/globalradiosystem.png",
     imageAlt: "Global Radio System",
   },
   {
@@ -43,7 +44,7 @@ const CATALOGS = [
     category: "Grabación",
     description: "Grabadores, switches y almacenamiento para CCTV.",
     filePath: "NVR - SWITCH - DISCOS DUROS.pptx",
-    image: "/assets/img/branding/tiandy.png",
+    image: "/catalogs/img/tiandy-switch.png",
     imageAlt: "NVR y equipos de red",
   },
   {
@@ -52,7 +53,7 @@ const CATALOGS = [
     category: "Conectividad",
     description: "Soluciones inalámbricas y equipos profesionales.",
     filePath: "WI FI - DUALS - PRO.pptx",
-    image: "/assets/img/branding/tiandy.png",
+    image: "/catalogs/img/tiandy-dual.png",
     imageAlt: "WiFi y conectividad",
   },
 ];
@@ -64,16 +65,16 @@ function getDownloadUrl(filePath: string): string {
 export function ProductCatalog() {
   return (
     <section id="productos" className="py-12 sm:py-16 md:py-20 lg:py-28 bg-muted/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-5">
+        <Reveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground px-2">
             Catálogo de productos
           </h2>
           <p className="mt-3 sm:mt-4 text-muted-foreground text-base sm:text-lg px-2">
             Cámaras, NVR, accesorios y kits. Descarga los catálogos por marca y categoría.
           </p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        </Reveal>
+        <Reveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8" delay={120}>
           {CATALOGS.map((catalog) => {
             const downloadUrl = getDownloadUrl(catalog.filePath);
             return (
@@ -88,7 +89,7 @@ export function ProductCatalog() {
                     src={catalog.image}
                     alt={catalog.imageAlt}
                     fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover object-[center_62%] group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                     quality={90}
                   />
@@ -115,8 +116,8 @@ export function ProductCatalog() {
               </a>
             );
           })}
-        </div>
-        <div className="mt-8 sm:mt-12 text-center px-2">
+        </Reveal>
+        <Reveal className="mt-8 sm:mt-12 text-center px-2" delay={180}>
           <a
             href="https://wa.me/50760707201?text=Hola%2C%20quiero%20más%20información%20sobre%20los%20catálogos%20y%20productos."
             target="_blank"
@@ -125,7 +126,7 @@ export function ProductCatalog() {
           >
             Consultar por WhatsApp
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

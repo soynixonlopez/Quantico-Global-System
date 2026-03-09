@@ -1,5 +1,7 @@
 "use client";
 
+import { Reveal } from "./Reveal";
+
 const benefits = [
   {
     title: "Alta resolución",
@@ -43,8 +45,8 @@ const benefits = [
 export function Benefits() {
   return (
     <section id="beneficios" className="py-12 sm:py-16 md:py-20 lg:py-28 bg-muted/50 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4 lg:px-5">
+        <Reveal className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
           <p className="text-primary font-medium text-sm uppercase tracking-widest mb-2 opacity-0 animate-fade-in-up" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
             Por qué elegirnos
           </p>
@@ -54,9 +56,9 @@ export function Benefits() {
           <p className="mt-3 text-muted-foreground text-base sm:text-lg opacity-0 animate-fade-in-up" style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}>
             Tecnología de punta, instalación confiable y soporte continuo para tu negocio o hogar.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+        <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6" delay={120}>
           {benefits.map((item, i) => (
             <div
               key={i}
@@ -84,7 +86,7 @@ export function Benefits() {
               </div>
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
