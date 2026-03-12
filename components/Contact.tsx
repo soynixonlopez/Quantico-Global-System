@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Reveal } from "./Reveal";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
@@ -12,18 +13,18 @@ export function Contact() {
 
   return (
     <section id="contacto" className="py-12 sm:py-16 md:py-20 lg:py-28 bg-muted/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-5">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-8 sm:mb-12">
+          <Reveal className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground px-2">
               Contáctanos
             </h2>
             <p className="mt-3 sm:mt-4 text-muted-foreground text-base sm:text-lg px-2">
               Escríbenos por correo o WhatsApp y te respondemos a la brevedad.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="rounded-xl sm:rounded-2xl border border-border bg-card p-4 sm:p-6 lg:p-10">
+          <Reveal className="rounded-xl sm:rounded-2xl border border-border bg-card p-4 sm:p-6 lg:p-10" delay={120}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-10">
               <div>
                 <h3 className="text-foreground font-semibold mb-2 text-sm sm:text-base">Correo</h3>
@@ -109,7 +110,7 @@ export function Contact() {
               </a>
               .
             </p>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

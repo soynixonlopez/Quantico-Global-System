@@ -1,44 +1,57 @@
 import Image from "next/image";
+import { Reveal } from "./Reveal";
 
 const brands = [
-  { name: "Tiandy", logo: "/assets/logo/tiandy.png" },
-  { name: "Vias", logo: "/assets/logo/vias.png" },
-  { name: "Garrett", logo: "/assets/logo/garret.png" },
-  { name: "Global Radio System", logo: "/assets/logo/globalradio.png" },
-  { name: "Quantico", logo: "/assets/logo/quanticonegro.png" },
+  {
+    name: "Tiandy",
+    logo: "/assets/img/branding/tiandylogo.png",
+  },
+  {
+    name: "Vias",
+    logo: "/assets/img/branding/viaslogo.png",
+  },
+  {
+    name: "Garrett",
+    logo: "/assets/img/branding/garretlogo.png",
+  },
+  {
+    name: "Global Radio System",
+    logo: "/assets/img/branding/globalradiologo.png",
+  },
 ];
 
 export function Brands() {
   return (
-    <section id="marcas" className="py-12 sm:py-16 md:py-20 lg:py-28 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+    <section id="marcas" className="py-12 sm:py-16 md:py-20 lg:py-28 bg-muted/40">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-5">
+        <Reveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground px-2">
             Marcas líderes que distribuimos
           </h2>
           <p className="mt-3 sm:mt-4 text-muted-foreground text-base sm:text-lg px-2">
             Trabajamos con los mejores fabricantes del mundo para ofrecerte calidad y confiabilidad.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-5 gap-3 sm:gap-6 md:gap-8 lg:gap-10 items-center justify-items-center">
+        <Reveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8" delay={120}>
           {brands.map((brand, i) => (
-            <div
+            <article
               key={i}
-              className="group w-full flex items-center justify-center min-w-0"
+              className="group flex items-center justify-center rounded-2xl border border-border bg-card shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 min-h-[120px] sm:min-h-[130px] p-5 sm:p-6"
             >
-              <div className="relative w-full aspect-square max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] transition-transform duration-300 group-hover:scale-105">
+              <div className="relative w-full max-w-[120px] h-12 sm:max-w-[140px] sm:h-14">
                 <Image
                   src={brand.logo}
-                  alt={brand.name}
+                  alt={`Logo ${brand.name}`}
                   fill
-                  className="object-contain opacity-90 group-hover:opacity-100 transition-opacity"
-                  sizes="(max-width: 640px) 80px, (max-width: 768px) 100px, (max-width: 1024px) 120px, 140px"
+                  className="object-contain object-center opacity-90 group-hover:opacity-100 transition-opacity"
+                  sizes="(max-width: 640px) 120px, 140px"
+                  quality={90}
                 />
               </div>
-            </div>
+            </article>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

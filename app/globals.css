@@ -79,6 +79,53 @@ body {
   animation: fade-in-up 0.6s ease-out forwards;
 }
 
+.reveal-enter {
+  opacity: 0;
+  transform: translateY(20px) scale(0.985);
+  filter: blur(2px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Beneficios: entrada escalonada y barra de acento */
+@keyframes benefit-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.benefit-card {
+  animation: benefit-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+.benefit-card:hover .benefit-accent {
+  transform: scaleY(1);
+}
+
+.benefit-card:hover .benefit-icon-wrap {
+  transform: scale(1.05);
+  background-color: var(--primary-100);
+}
+
+.dark .benefit-card:hover .benefit-icon-wrap {
+  background-color: rgba(45, 212, 191, 0.15);
+}
+
 /* Gradientes - light (por defecto) */
 .gradient-hero {
   background: linear-gradient(
@@ -110,4 +157,15 @@ body {
     rgba(45, 212, 191, 0.08) 0%,
     var(--card) 100%
   );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-enter,
+  .reveal-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
 }

@@ -24,7 +24,7 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-5">
         <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20 gap-2 min-h-[56px]">
           <Logo onClick={() => setOpen(false)} priority />
 

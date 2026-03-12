@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "./Reveal";
 
 const reasons = [
   {
@@ -34,22 +35,22 @@ const reasons = [
 export function WhyUs() {
   return (
     <section id="por-que-nosotros" className="py-12 sm:py-16 md:py-20 lg:py-28 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-5">
+        <Reveal className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
             ¿Por qué elegir Quantico System Global?
           </h2>
           <p className="mt-3 sm:mt-4 text-muted-foreground text-base sm:text-lg">
             Confianza, calidad y servicio en cada proyecto de seguridad.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <Reveal className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center" delay={120}>
           {/* Imagen con detalle */}
           <div className="relative order-2 lg:order-1">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] max-h-[400px] lg:max-h-none">
               <Image
-                src="/assets/img/choosequantico.png"
+                src="/assets/img/choosesection.jpg"
                 alt="Por qué elegir Quantico - Sistemas de seguridad"
                 fill
                 className="object-cover"
@@ -84,7 +85,7 @@ export function WhyUs() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
