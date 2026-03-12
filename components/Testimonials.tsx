@@ -36,7 +36,7 @@ export function Testimonials() {
               key={i}
               className="rounded-xl border border-border bg-card p-4 sm:p-6 lg:p-8 hover:border-primary/30 transition-colors"
             >
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">"{t.quote}"</p>
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
               <div className="mt-4 sm:mt-6 pt-4 border-t border-border">
                 <p className="text-foreground font-semibold text-sm sm:text-base">{t.author}</p>
                 <p className="text-muted-foreground text-xs sm:text-sm mt-0.5">{t.role}</p>

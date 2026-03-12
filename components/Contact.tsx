@@ -105,7 +105,7 @@ export function Contact() {
 
             <p className="mt-4 sm:mt-6 text-muted-foreground text-xs sm:text-sm">
               Para cotizaciones rápidas, escríbenos directamente por{" "}
-              <a href="https://wa.me/50760707201" className="text-primary hover:underline">
+              <a href="https://wa.me/50760707201" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                 WhatsApp
               </a>
               .
