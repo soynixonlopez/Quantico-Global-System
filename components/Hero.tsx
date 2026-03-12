@@ -42,19 +42,78 @@ export function Hero() {
         </Reveal>
         {/* Móvil: imagen abajo (order-2). Desktop: imagen derecha (md:order-2) */}
         <Reveal className="relative order-2 flex justify-center" delay={120}>
-          <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-border shadow-2xl w-full max-w-lg md:max-w-none aspect-[4/3] md:aspect-auto md:h-[360px] lg:h-[460px] h-full bg-card">
-            <Image
-              src="/assets/img/bannersection.png"
-              alt="Sistema de cámaras de seguridad - Quantico System Global"
-              fill
-              className="object-contain object-center"
-              priority
-              sizes="(max-width: 768px) 100vw, 50vw"
-              unoptimized
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-card to-transparent p-4 sm:p-6">
-              <p className="text-card-foreground font-medium text-sm sm:text-base">Sistemas CCTV profesionales</p>
-              <p className="text-muted-foreground text-xs sm:text-sm">Instalación y soporte en Panamá</p>
+          <div className="relative w-full max-w-lg md:max-w-none md:h-[380px] lg:h-[460px]">
+            <div className="relative h-full w-full rounded-2xl border border-border shadow-2xl overflow-hidden bg-neutral-100 dark:bg-neutral-800">
+              <Image
+                src="/assets/img/bannermain.png"
+                alt="Instalación de sistemas de seguridad - Quantico System Global"
+                fill
+                className="object-cover object-center"
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
+              />
+
+              {/* Barra inferior: verde de la marca, texto legible */}
+              <div className="absolute inset-x-0 bottom-0 bg-primary text-primary-foreground py-4 sm:py-5 px-4 sm:px-6">
+                <p className="font-semibold text-sm sm:text-base text-primary-foreground">
+                  Sistemas CCTV profesionales
+                </p>
+                <p className="text-primary-foreground/90 text-xs sm:text-sm mt-0.5">
+                  Instalación y soporte técnico especializado en todo Panamá.
+                </p>
+              </div>
+            </div>
+
+            {/* Íconos flotantes: fondo blanco sólido y sombra para buen contraste */}
+            <div className="pointer-events-none absolute inset-0">
+              <div className="absolute -top-2 sm:-top-3 left-4 sm:left-8">
+                <div className="rounded-xl bg-white border-2 border-neutral-200 shadow-xl p-2.5 sm:p-3 ring-2 ring-white/50">
+                  <Image
+                    src="/assets/img/branding/tiandylogo.png"
+                    alt="Tiandy"
+                    width={40}
+                    height={40}
+                    className="object-contain w-8 h-8 sm:w-10 sm:h-10"
+                    unoptimized
+                  />
+                </div>
+              </div>
+
+              <div className="absolute top-6 sm:top-8 -right-1 sm:right-2">
+                <div className="rounded-xl bg-white border-2 border-neutral-200 shadow-xl p-2.5 sm:p-3 ring-2 ring-white/50">
+                  <Image
+                    src="/assets/img/branding/viaslogo.png"
+                    alt="Vias"
+                    width={36}
+                    height={36}
+                    className="object-contain w-7 h-7 sm:w-9 sm:h-9"
+                    unoptimized
+                  />
+                </div>
+              </div>
+
+              <div className="absolute bottom-16 sm:bottom-20 -left-1 sm:left-2">
+                <div className="rounded-xl bg-white border-2 border-neutral-200 shadow-xl p-2.5 sm:p-3 ring-2 ring-white/50">
+                  <Image
+                    src="/assets/img/branding/garretlogo.png"
+                    alt="Garrett"
+                    width={36}
+                    height={36}
+                    className="object-contain w-7 h-7 sm:w-9 sm:h-9"
+                    unoptimized
+                  />
+                </div>
+              </div>
+
+              <div className="absolute bottom-14 sm:bottom-16 right-4 sm:right-6">
+                <div className="rounded-xl bg-white border-2 border-neutral-200 shadow-xl px-3 py-2 sm:px-4 sm:py-2.5 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-[10px] sm:text-xs font-semibold text-neutral-700">
+                    Soporte en línea
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </Reveal>
