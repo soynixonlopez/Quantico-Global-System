@@ -33,6 +33,14 @@ npm run build
 npm start
 ```
 
+## Variables de entorno y seguridad
+
+1. Copia `.env.example` a `.env.local`.
+2. Completa tus credenciales SMTP reales para el formulario de contacto.
+3. Nunca subas `.env.local` ni contraseñas al repositorio.
+
+El proyecto ya ignora archivos `.env*` locales vía `.gitignore`.
+
 ## Secciones del sitio
 
 - Hero con CTA a WhatsApp

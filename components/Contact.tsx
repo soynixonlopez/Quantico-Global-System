@@ -5,10 +5,43 @@ import { Reveal } from "./Reveal";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
+    setSent(false);
+    setError(null);
+    setSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      name: String(formData.get("name") ?? "").trim(),
+      email: String(formData.get("email") ?? "").trim(),
+      message: String(formData.get("message") ?? "").trim(),
+      website: String(formData.get("website") ?? "").trim(),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const data = (await response.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(data?.error ?? "No se pudo enviar el mensaje.");
+      }
+
+      setSent(true);
+      form.reset();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "No se pudo enviar el mensaje.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -50,6 +83,14 @@ export function Contact() {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
                   Nombre
@@ -59,6 +100,7 @@ export function Contact() {
                   name="name"
                   type="text"
                   required
+                  disabled={submitting}
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-base min-h-[48px]"
                   placeholder="Tu nombre"
                 />
@@ -72,6 +114,7 @@ export function Contact() {
                   name="email"
                   type="email"
                   required
+                  disabled={submitting}
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-base min-h-[48px]"
                   placeholder="tu@correo.com"
                 />
@@ -85,6 +128,7 @@ export function Contact() {
                   name="message"
                   rows={4}
                   required
+                  disabled={submitting}
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none text-base min-h-[120px]"
                   placeholder="Cuéntanos qué necesitas..."
                 />
@@ -93,14 +137,19 @@ export function Contact() {
                 <p className="text-accent font-medium text-sm sm:text-base">
                   Gracias. Te contactaremos pronto. También puedes escribirnos por WhatsApp al 6070-7201.
                 </p>
-              ) : (
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-primary hover:opacity-90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-colors min-h-[48px]"
-                >
-                  Enviar mensaje
-                </button>
-              )}
+              ) : null}
+              {error ? (
+                <p className="text-red-600 font-medium text-sm sm:text-base">
+                  {error}
+                </p>
+              ) : null}
+              <button
+                type="submit"
+                disabled={submitting}
+                className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-primary hover:opacity-90 disabled:opacity-70 disabled:cursor-not-allowed text-primary-foreground px-6 py-3 rounded-lg font-medium transition-colors min-h-[48px]"
+              >
+                {submitting ? "Enviando..." : "Enviar mensaje"}
+              </button>
             </form>
 
             <p className="mt-4 sm:mt-6 text-muted-foreground text-xs sm:text-sm">
